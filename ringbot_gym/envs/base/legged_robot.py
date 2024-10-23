@@ -28,7 +28,7 @@
 #
 # Copyright (c) 2021 ETH Zurich, Nikita Rudin
 
-from legged_gym import LEGGED_GYM_ROOT_DIR, envs
+from ringbot_gym import GYM_ROOT_DIR, envs
 from time import time
 from warnings import WarningMessage
 import numpy as np
@@ -41,11 +41,11 @@ import torch
 from torch import Tensor
 from typing import Tuple, Dict
 
-from legged_gym import LEGGED_GYM_ROOT_DIR
-from legged_gym.envs.base.base_task import BaseTask
-from legged_gym.utils.terrain import Terrain
-from legged_gym.utils.math import quat_apply_yaw, wrap_to_pi, torch_rand_sqrt_float
-from legged_gym.utils.helpers import class_to_dict
+from ringbot_gym import GYM_ROOT_DIR
+from ringbot_gym.envs.base.base_task import BaseTask
+from ringbot_gym.utils.terrain import Terrain
+from ringbot_gym.utils.math import quat_apply_yaw, wrap_to_pi, torch_rand_sqrt_float
+from ringbot_gym.utils.helpers import class_to_dict
 from .legged_robot_config import LeggedRobotCfg
 
 class LeggedRobot(BaseTask):
@@ -620,7 +620,7 @@ class LeggedRobot(BaseTask):
                 2.3 create actor with these properties and add them to the env
              3. Store indices of different bodies of the robot
         """
-        asset_path = self.cfg.asset.file.format(LEGGED_GYM_ROOT_DIR=LEGGED_GYM_ROOT_DIR)
+        asset_path = self.cfg.asset.file.format(GYM_ROOT_DIR=GYM_ROOT_DIR)
         asset_root = os.path.dirname(asset_path)
         asset_file = os.path.basename(asset_path)
 
